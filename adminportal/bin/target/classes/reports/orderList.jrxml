@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="totalLoan" language="java" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="cecdb078-1435-4dde-ac31-21fd907f9a2a">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[select * from user_order]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orderDate" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="shippingMethod" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orderStatus" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orderTotal" class="java.lang.Number">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+
+	<background>
+		<band height="575" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="eaed91b9-2fa3-4942-b27b-23055e63a325"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="104" height="73" forecolor="#000000" uuid="25ce6bb2-43c4-49c4-9701-abb82be1f800"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="58" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="0" y="77" width="104" height="20" forecolor="#000000" uuid="9c6873b2-6dbe-4b18-922b-5e4f7385243f"/>
+					<box leftPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center">
+						<font size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement mode="Transparent" x="42" y="73" width="20" height="1" backcolor="#FFFFFF" uuid="26750022-faae-4f4e-9695-bd31ee3e1fca"/>
+				</line>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="802" height="67" uuid="be718ab0-4fc5-49ce-89c5-975a00924c56"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Total Orders Report]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="36293410-0def-4873-8f0f-bca2afc3d683"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[order list]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#666666" uuid="2a4a0146-4cbd-44c8-bf4b-55fe184f9add"/>
+			
+		
+				<staticText>
+				<reportElement style="Column header" x="97" y="5" width="33" height="15" uuid="2c858c75-a7f2-4ae0-a9f4-5973a2a109a8"/>
+				<text><![CDATA[id]]></text>
+			</staticText>
+				
+				
+				<staticText>
+					<reportElement style="Column header" x="621" y="0" width="84" height="15" uuid="c5910919-ce07-4403-a223-c21432c3a7d9"/>
+					<text><![CDATA[orderDate]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="257" y="0" width="59" height="15" uuid="eff15e85-077e-462e-be45-1324305dd36c"/>
+					<text><![CDATA[shippingMethod]]></text>
+				</staticText>
+					<staticText>
+					<reportElement style="Column header" x="94" y="0" width="47" height="15" uuid="5e5794cf-4ae6-41f7-bc96-9305f1c1159e"/>
+					<text><![CDATA[orderStatus]]></text>
+				</staticText>
+					<staticText>
+					<reportElement style="Column header" x="94" y="0" width="47" height="15" uuid="5e5794cf-4ae6-41f7-bc96-9305f1c1159e"/>
+					<text><![CDATA[orderTotal]]></text>
+				</staticText>
+				
+			</frame>
+			
+			
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="111ed85b-6532-4ca3-a94a-8bed997a62b0"/>
+				
+				
+				
+				<textField>
+					<reportElement style="Detail" x="94" y="0" width="47" height="15" uuid="9e38083e-6b2c-4c5a-ab5b-09caabfdc92a"/>
+					<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+				</textField>
+						</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1" uuid="2cab0e32-dc20-447c-825d-c0e4cd0ba3b2"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="97" y="1" width="33" height="15" uuid="b98ae4d9-218d-45e1-9a14-58ed7d6c06e1"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+				
+			</textField>
+			<textField>
+					<reportElement style="Detail" x="94" y="0" width="47" height="15" uuid="9e38083e-6b2c-4c5a-ab5b-09caabfdc92a"/>
+					<textFieldExpression><![CDATA[$F{orderDate}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="141" y="0" width="69" height="15" uuid="a494ae38-91cf-43a6-b22c-afcd1b4c59c9"/>
+					<textFieldExpression><![CDATA[$F{shippingMethod}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="210" y="0" width="47" height="15" uuid="4aa1f125-a5ca-42e2-8c19-be84c77665e2"/>
+					<textFieldExpression><![CDATA[$F{orderStatus}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="257" y="0" width="59" height="15" uuid="6a957fb4-7773-4007-86e7-a787e266a422"/>
+					<textFieldExpression><![CDATA[$F{orderTotal}]]></textFieldExpression>
+				</textField>
+			
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="0" width="131" height="20" forecolor="#000000" uuid="5926d7af-ed67-457e-a89b-0fce65d3a906"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="96" y="0" width="267" height="20" uuid="c4328184-ab39-4162-bd8b-8e05525a9b77"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[order List]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

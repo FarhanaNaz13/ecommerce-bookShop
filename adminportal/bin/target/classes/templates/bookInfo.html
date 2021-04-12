@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+<!-- Static navbar -->
+<div th:replace="common/header :: navbar"/>
+<div th:fragment="sidebar">
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s4">
+      <img src="https://www.w3schools.com/howto/img_avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+    </div>
+    <div class="w3-col s8 w3-bar">
+      <span>Welcome, <strong>Admin</strong></span><br>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h5>Dashboard</h5>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Views</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Customers</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Bookhelf</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br>
+  </div>
+</nav>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+
+
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+
+
+
+<div class="container">
+    <div>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a th:href="@{/book/bookList}"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Go back</a></li>
+            <li class="breadcrumb-item"><a th:href="@{/book/updateBook(id=${book.id})}">Edit</a></li>
+        </ol>
+    </div>
+
+    <div class="row">
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <img th:src="@{/image/book/}+${book.id}+'.png'" class="img-fluid mx-auto"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-9">
+            <h3 th:text="${book.title}"></h3>
+            <div class="row">
+                <div class="col-6">
+                    <p><strong>Author: </strong><span th:text="${book.author}"></span></p>
+                    <p><strong>Publisher: </strong><span th:text="${book.publisher}"></span></p>
+                    <p><strong>Publication Date: </strong><span th:text="${book.publicationDate}"></span></p>
+                    <p><strong>Language: </strong><span th:text="${book.language}"></span></p>
+                    <p><strong>Category: </strong><span th:text="${book.category}"></span></p>
+                    <p><strong>Pages: </strong><span th:text="${book.numberOfPages}"></span></p>
+                </div>
+
+                <div class="col-6">
+                    <p><strong>Format: </strong><span th:text="${book.format}"></span></p>
+                    <p><strong>ISBN: </strong><span th:text="${book.isbn}"></span></p>
+                    <p><strong>Shipping Weight: </strong><span th:text="${book.shippingWeight}"></span></p>
+                    <p><strong>List Price: </strong><span th:text="${book.listPrice}"></span></p>
+                    <p><strong>Our Price: </strong><span th:text="${book.ourPrice}"></span></p>
+                    <p><strong>Number in Stock: </strong><span th:text="${book.inStockNumber}"></span></p>
+                </div>
+            </div>
+
+            <p><Strong>Description: </Strong><span th:utext="${book.description}"></span></p>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<div th:replace="common/header :: body-bottom-scripts" />
+</body>
+</html>

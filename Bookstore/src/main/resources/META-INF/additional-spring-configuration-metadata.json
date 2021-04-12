@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "support.mail",
+    "type": "java.lang.String",
+    "description": "A description for 'support.mail'"
+  },
+  {
+    "name": "spring.mail.smtp.starttls.enable",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.mail.smtp.starttls.enable'"
+  },
+  {
+    "name": "spring.mail.from.email",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.mail.from.email'"
+  }
+]}

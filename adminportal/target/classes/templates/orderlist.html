@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header :: common-header" />
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+<!-- Static navbar -->
+<div th:replace="common/header :: navbar"/>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+
+
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+
+
+
+
+
+<div class="container">
+    <div class="table-responsive">
+        <table id="orderListTable" class="table table-bordered table-hover table-striped">
+            <thead>
+            <tr>
+                <th><input th:id="selectAllOrders" type="checkbox"/></th>
+                <th>order_id</th>
+                <th>order_date</th>
+                <th>order_status</th>
+                               <th>order_total</th>
+                <th>shippig_method</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-th-each="order : ${orderList}">
+
+                <td>
+                    <input hidden="hidden" name="id" th:value="${order.id}" />
+                    <input th:id="'selected'+${order.id}" class="checkboxOrder" type="checkbox"/>
+                </td>
+                <td><a th:href="@{/order/orderList(id=${order.id})}"><span th:text="${order.id}"></span></a></a></td>
+                <td th:text="${order.orderDate}"></td>
+                <td th:text="${order.orderStatus}"></td>
+                <td th:text="${order.orderTotal}"></td>
+              
+                <td th:text="${order.shippingMethod}"></td>
+                <td>
+                    <input hidden="hidden" name="id" th:value="${order.id}" />
+                    <button th:id="'oneOrder-'+${order.id}" class="btn btn-info btn-xs delete-order" type="submit" value="delete">
+                        <span class="fa fa-times">Delete</span>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <button th:id="deleteSelected" class="btn btn-primary">Delete Selected</button>
+</div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<div th:replace="common/header :: body-bottom-scripts" />
+
+<script>
+    $(document).ready(function() {
+        $('#orderListTable').DataTable({
+            "lengthMenu": [ [5,10,15,20,-1],[5,10,15,20,"All"] ],
+            "ordering": false,
+            stateSave: true
+        });
+    });
+</script>
+</body>
+</html>

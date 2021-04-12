@@ -1,0 +1,4 @@
+id,email,enabled,first_name,last_name,password,phone,username
+1,farha.du@gmail.com,1,farhana,naz,$2a$12$LtbYtEzOBdnsiD/E9Wtj2OScH8gljx.9wdrliPDu1JR15Hd6zdtYi,NULL,farha.du@gmail.com
+4,farhananaz.du@gmail.com,1,farhana,naz,$2a$12$LtbYtEzOBdnsiD/E9Wtj2OO0RIIO9cYdc/.7bJsnV7s0wrxYnwBdm,NULL,farhananaz.du
+8,admin@gmail.com,1,Admin,Admin,$2a$12$LtbYtEzOBdnsiD/E9Wtj2OZz80wXDrKDMacktYr8pq3j0X6HO75Fm,NULL,admin
